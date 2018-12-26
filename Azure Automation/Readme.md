@@ -1,0 +1,1 @@
+Azure automation and shit
