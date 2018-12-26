@@ -1,5 +1,16 @@
-﻿#Runs scheduled employee transfer
-
+﻿<#
+ # <#
+   .Synopsis
+      Run scheduled transfer process
+   .DESCRIPTION
+      Search for named variable from WebJEA, run on schedule (Sunday night)
+   .OUTPUTS
+      Outputs located in Automation Account in Azure
+   .NOTES
+      Delete tool available in case process needs cancelled.  Located in WebJEA
+   .FUNCTIONALITY
+      Approved transfer process
+   #>
 
 #Credentials for O365
 ####################################################################
