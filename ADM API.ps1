@@ -23,17 +23,6 @@ $result.status
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 $array = ("Chris,Reese,1010101,Template ppp,E1",
 "Chris,Reese,12345,thing 1,E1",
 "Chris,Reese,65412,thing 2,",
