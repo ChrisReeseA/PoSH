@@ -2,7 +2,7 @@
 #Move disabled accounts to OU
 #Delete disabled/out-of-date from SCCM
 #
-$TranscriptPath = "C:\Jenkins Scripts\Disabled, Delete, Move Computer Log\Temp Transcript.txt"
+$TranscriptPath = ""
 
 $Date = Get-Date
 $DateFormatted = Get-Date -Format MMM.dd.yyyy-hhmm
@@ -17,8 +17,8 @@ $DisabledComputers = Get-ADComputer -filter {(enabled -eq $false) -and (lastlogo
 $OutOfDateComputers = Get-ADComputer -filter {lastlogondate -lt $OutofTimeDate60 -and operatingsystem -notlike "*server*"} -Properties lastlogondate | ? {$_.name -notlike "*KIOSK*"}
 $DisabledComputersWithDescription = Get-ADComputer -Filter 'description -like "Disabled*"' -Properties description
 
-$InactiveOUPath = "ou=computers_inactive,dc=glidewelllab,dc=local"
-$LogPath = "C:\Azure Automation\Disable Computers_New Move and Delete\$($DateFormatted).log"
+$InactiveOUPath = ""
+$LogPath = "$($DateFormatted).log"
 $LogFile = New-Item -Path $LogPath
 
 #Move to Inactive OU -> 30 days
@@ -139,10 +139,10 @@ $EmailReport = Get-Content $LogPath
 
 #Prepare and send email report
 if ($ErrorCount -ge 1) {
-    $to = "Christopher.Reese@glidewelldental.com"
-    $from = "Christopher.Reese@glidewelldental.com"
+    $to = ""
+    $from = ""
     $subject = "Workstation Decommission Error Report"
-    $smtpserver = "GL-MISEXCHWV01.glidewelllab.local"
+    $smtpserver = ""
     $body = "
     
 $($EmailReport | out-string)   
